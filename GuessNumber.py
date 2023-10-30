@@ -16,9 +16,14 @@ def BaseGame():
 
 windows = tk.Tk()
 label = tk.Label(text="Hello. This is a guess number game!", fg='black', bg='white', width=40, height=10,font=30)
-button1 = tk.Button(text="I`m deeping in!",fg='white',bg='black',width=40,height=5, font=25)
-button2 = tk.Button(command=windows.destroy(),text="No. I`m leaving.",fg='white',bg='black',width=40,height=5,font=25)
+button1 = tk.Button(text="I`m deeping in!",fg='white',bg='black',width=40,height=5, font=25,command=lambda: windows.quit())
+button2 = tk.Button(text="No. I`m leaving.",fg='white',bg='black',width=40,height=5,font=25,command=lambda: quit())
+windows.title("Starting!")
 label.pack()
 button1.pack()
 button2.pack()
 windows.mainloop()
+def show_mainmenu():
+    main_menu = tk.Tk()
+    main_menu.title("Main-Menu")
+    main = tk.Label(text='What you`re interested in?', fg)
