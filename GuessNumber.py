@@ -122,16 +122,11 @@ def show_mainmenu():
     main_menu.mainloop()
 
 
-windows = tk.Tk()
-
-
-
-
-
 def start():
     def but(TK: tk.Tk):
         TK.destroy()
         show_mainmenu()
+    windows = tk.Tk()
     label = tk.Label(text="Hello. This is a guess number game!", fg='black', bg='white', width=40, height=10, font=30)
     button1 = tk.Button(text="I`m deeping in!", fg='white', bg='black', width=40, height=5, font=25,
                         command=lambda: but(windows))
