@@ -32,6 +32,7 @@ def show_tutorial():
     tutorial_label.pack()
     tutorial.mainloop()
 
+
 def play_crazy(max_value):
     def check():
         guess_number = random.randint(1, max_value)
@@ -45,6 +46,7 @@ def play_crazy(max_value):
                 guess_hint.configure(text="Hint: Only numbers are allowed")
         else:
             guess_hint.configure(text="Hint: Please enter a number.")
+
     guess = tk.Tk()
     guess.title("Guessing the number")
     guess_main = tk.Label(guess, text=f"""Let's try to guess a number between 1 and {max_value}. 
@@ -58,6 +60,7 @@ def play_crazy(max_value):
     guess_input.pack(side='left')
     guess_enter.pack(side='right')
     guess.mainloop()
+
 
 def play(max_value):
     def check():
@@ -79,7 +82,8 @@ def play(max_value):
     guess = tk.Tk()
     guess.title("Guessing the number")
     guess_number = random.randint(1, max_value)
-    guess_main = tk.Label(guess, text=f"Let's try to guess a number between 1 and {max_value}", fg='black', bg='white', font=40, width=50, height=10)
+    guess_main = tk.Label(guess, text=f"Let's try to guess a number between 1 and {max_value}", fg='black', bg='white',
+                          font=40, width=50, height=10)
     guess_hint = tk.Label(guess, text="Hint: ...", fg='black', bg='white', font=30, width=50, height=5)
     guess_input = tk.Entry(guess, background='white', foreground='black', width=77, justify='center')
     guess_enter = tk.Button(guess, bg='white', fg='black', text='Enter', font=10, command=lambda: check())
@@ -89,22 +93,30 @@ def play(max_value):
     guess_enter.pack(side='right')
     guess.mainloop()
 
+
 def show_mainmenu():
     main_menu = tk.Tk()
     main_menu.title("Main-Menu")
-    main = tk.Label(main_menu, text='What you`re interested in?', fg='black', bg='white', pady=5, width=40, height=5,font=30)
-    button_tutorial = tk.Button(main_menu, text='Tutorial', fg='black', bg='white', width=40, height=5, font=30, command=lambda: show_tutorial())
-    button1 = tk.Button(main_menu, text='Basic game (10)', fg='black', bg='white', width=19, height=5,font=30, command=lambda: play(10))
-    button2 = tk.Button(main_menu, text='Advanced game(50)', fg='black', bg='white', width=19, height=5,font=30, command=lambda: play(50))
-    button3 = tk.Button(main_menu, text='Hard game(100)', fg='black', bg='white', width=19, height=5,font=30, command=lambda: play(100))
-    button4 = tk.Button(main_menu, text='Skill game(500)', fg='black', bg='white', width=19, height=5,font=30, command=lambda: play(500))
-    button5 = tk.Button(main_menu, text='Crazy game!(200)', fg='black',bg='white',width=38,height=5,font=30,command=lambda: play_crazy(200))
+    main = tk.Label(main_menu, text='What you`re interested in?', fg='black', bg='white', pady=5, width=40, height=5,
+                    font=30)
+    button_tutorial = tk.Button(main_menu, text='Tutorial', fg='black', bg='white', width=40, height=5, font=30,
+                                command=lambda: show_tutorial())
+    button1 = tk.Button(main_menu, text='Basic game (10)', fg='black', bg='white', width=19, height=5, font=30,
+                        command=lambda: play(10))
+    button2 = tk.Button(main_menu, text='Advanced game(50)', fg='black', bg='white', width=19, height=5, font=30,
+                        command=lambda: play(50))
+    button3 = tk.Button(main_menu, text='Hard game(100)', fg='black', bg='white', width=19, height=5, font=30,
+                        command=lambda: play(100))
+    button4 = tk.Button(main_menu, text='Skill game(500)', fg='black', bg='white', width=19, height=5, font=30,
+                        command=lambda: play(500))
+    button5 = tk.Button(main_menu, text='Crazy game!(200)', fg='black', bg='white', width=38, height=5, font=30,
+                        command=lambda: play_crazy(200))
     main.pack(fill=tk.X)
-    button_tutorial.pack(side='top',fill=tk.X)
-    button1.pack(side='left',fill=tk.Y)
-    button3.pack(side='right',fill=tk.Y)
-    button4.pack(side='bottom',fill=tk.X)
-    button2.pack(side='top',fill=tk.X)
+    button_tutorial.pack(side='top', fill=tk.X)
+    button1.pack(side='left', fill=tk.Y)
+    button3.pack(side='right', fill=tk.Y)
+    button4.pack(side='bottom', fill=tk.X)
+    button2.pack(side='top', fill=tk.X)
     button5.pack(anchor='s')
 
     main_menu.mainloop()
@@ -113,19 +125,21 @@ def show_mainmenu():
 windows = tk.Tk()
 
 
-def but(TK: tk.Tk):
-    TK.destroy()
-    show_mainmenu()
 
 
-label = tk.Label(text="Hello. This is a guess number game!", fg='black', bg='white', width=40, height=10, font=30)
-button1 = tk.Button(text="I`m deeping in!", fg='white', bg='black', width=40, height=5, font=25,
-                    command=lambda: but(windows))
-button2 = tk.Button(text="No. I`m leaving.", fg='white', bg='black', width=40, height=5, font=25,
-                    command=lambda: quit())
-windows.title("Starting!")
-label.pack()
-button1.pack()
-button2.pack()
-windows.mainloop()
-show_mainmenu()
+
+def start():
+    def but(TK: tk.Tk):
+        TK.destroy()
+        show_mainmenu()
+    label = tk.Label(text="Hello. This is a guess number game!", fg='black', bg='white', width=40, height=10, font=30)
+    button1 = tk.Button(text="I`m deeping in!", fg='white', bg='black', width=40, height=5, font=25,
+                        command=lambda: but(windows))
+    button2 = tk.Button(text="No. I`m leaving.", fg='white', bg='black', width=40, height=5, font=25,
+                        command=lambda: quit())
+    windows.title("Starting!")
+    label.pack()
+    button1.pack()
+    button2.pack()
+    windows.mainloop()
+start()
